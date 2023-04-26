@@ -9,7 +9,7 @@ import { extractLocations } from '../api';
 
 describe('<CitySearch /> component', () => {
     let locations, CitySearchWrapper;
-    beforeAll(() => {
+        beforeAll(() => {
         locations = extractLocations(mockData);
       CitySearchWrapper = shallow(<CitySearch locations={locations} />);
     });
