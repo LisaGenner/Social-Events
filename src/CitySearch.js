@@ -25,7 +25,6 @@ class CitySearch extends Component {
     });
   }
 
-
   render() {
     return (
       <div className="CitySearch">
@@ -46,9 +45,7 @@ class CitySearch extends Component {
     <b>See all cities</b>
   </li>
 </ul>
-
-
-      </div>
+   </div>
     );
   }
 }

@@ -58,5 +58,5 @@ describe('<CitySearch /> component', () => {
         CitySearchWrapper.find('.suggestions li').at(0).simulate('click');
         expect(CitySearchWrapper.state("query")).toBe(suggestions[0]);
       });
-
+  
   });
