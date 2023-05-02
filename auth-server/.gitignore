@@ -7,3 +7,9 @@ jspm_packages
 
 #environment variables
 config.json
+
+# testing
+/coverage
+
+# production
+/build
