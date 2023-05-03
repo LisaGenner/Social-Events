@@ -5,7 +5,7 @@ import './App.css';
 import './nprogress.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
-import { getEvents, extractLocations, checkToken, getAccessToken } from "./api";
+import { getEvents, extractLocations } from "./api";
 
 class App extends Component {
   state = {
