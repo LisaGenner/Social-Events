@@ -1,7 +1,5 @@
 // src/App.js
 
-// src/App.js
-
 import React, { Component } from 'react';
 import './App.css';
 import EventList from './EventList';
@@ -45,6 +43,7 @@ componentWillUnmount(){
       <div className="App">
           <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <EventList events={this.state.events} />
+
       </div>
     );
   }
