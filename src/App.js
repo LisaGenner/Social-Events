@@ -1,12 +1,11 @@
 // src/App.js
 
-// src/App.js
-
 import React, { Component } from 'react';
 import './App.css';
+import './nprogress.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
-import { getEvents, extractLocations } from "./api";
+import { getEvents, extractLocations, checkToken, getAccessToken } from "./api";
 
 class App extends Component {
   state = {
