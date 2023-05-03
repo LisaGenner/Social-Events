@@ -44,6 +44,7 @@ componentWillUnmount(){
       <div className="App">
           <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <EventList events={this.state.events} />
+
       </div>
     );
   }
