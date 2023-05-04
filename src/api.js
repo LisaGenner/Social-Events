@@ -39,22 +39,28 @@ const removeQuery = () => {
     window.history.pushState("", "", newurl);
   }
 };
+
 //const getToken
 const getToken = async (code) => {
-  const encodeCode = encodeURIComponent(code);
-  const { access_token } = await fetch(
-    "https://x0p4qmdlxi.execute-api.eu-central-1.amazonaws.com/dev/api/token" +
-      encodeCode
-  )
-    .then((res) => {
-      return res.json();
-    })
-    .catch((error) => error);
+  try {
+    const encodeCode = encodeURIComponent(code);
 
-  access_token && localStorage.setItem("access_token", access_token);
-
-  return access_token;
+    const response = await fetch(
+      "https://x0p4qmdlxi.execute-api.eu-central-1.amazonaws.com/dev/api/token" +
+        "/" +
+        encodeCode
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const { access_token } = await response.json();
+    access_token && localStorage.setItem("access_token", access_token);
+    return access_token;
+  } catch (error) {
+    error.json();
+  }
 };
+
 //export const getEvents
 
 export const getEvents = async () => {
@@ -71,6 +77,7 @@ export const getEvents = async () => {
     removeQuery();
     const url =
       "https://x0p4qmdlxi.execute-api.eu-central-1.amazonaws.com/dev/api/get-events" +
+      "/" +
       token;
     const result = await axios.get(url);
     if (result.data) {

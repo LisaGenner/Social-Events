@@ -8,8 +8,7 @@ import { shallow, mount } from 'enzyme';
 import { mockData } from '../mock-data';
 import { extractLocations, getEvents } from '../api';
 
-
-
+//commponet testing
 describe('<App /> component', () => {
   let AppWrapper;
   beforeAll(() => {
