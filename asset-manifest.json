@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/socialevents/static/css/main.1f6e645d.css",
+    "main.js": "/socialevents/static/js/main.f6e4cb03.js",
+    "static/js/787.95a3de5f.chunk.js": "/socialevents/static/js/787.95a3de5f.chunk.js",
+    "service-worker.js": "/socialevents/service-worker.js",
+    "index.html": "/socialevents/index.html",
+    "main.1f6e645d.css.map": "/socialevents/static/css/main.1f6e645d.css.map",
+    "main.f6e4cb03.js.map": "/socialevents/static/js/main.f6e4cb03.js.map",
+    "787.95a3de5f.chunk.js.map": "/socialevents/static/js/787.95a3de5f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1f6e645d.css",
+    "static/js/main.f6e4cb03.js"
+  ]
+}
