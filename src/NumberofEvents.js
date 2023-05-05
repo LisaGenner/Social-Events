@@ -1,20 +1,20 @@
 import React, { Component } from "react";
 
  class NumberOfEvents extends Component {
-   state = { num: 10 };
+   state = { number: 10 };
 
    changeNum(value) {
      this.setState({ num: value });
    }
 
    render() {
-     const { num } = this.state;
+     const {number } = this.state;
 
      return (
        <input
-         className="num"
+         className="number"
          type="number"
-         value={num}
+         value={number}
          onChange={(event) => {
            this.changeNum(event.target.value);
          }}
