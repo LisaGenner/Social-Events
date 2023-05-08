@@ -2,12 +2,14 @@
   "name": "socialevents",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lisagenner.github.io/socialevents",
+  "homepage": "https://lisagenner.github.io/social-events",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^1.4.0",
     "googleapis": "^59.0.0",
+    "nprogress": "^0.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.1",
@@ -54,7 +56,12 @@
   "devDependencies": {
     "@wojtekmaj/enzyme-adapter-react-17": "^0.8.0",
     "enzyme": "^3.11.0",
-    "gh-pages": "^5.0.0"
+    "gh-pages": "^5.0.0",
+    "jest": "^27.5.1"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!(react-leaflet|@react-leaflet|d3-*|axios))"
+    ]
   }
 }
-
