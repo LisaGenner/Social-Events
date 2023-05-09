@@ -1,26 +1,36 @@
 import React, { Component } from "react";
 
- class NumberOfEvents extends Component {
-   state = { num: 10 };
+class NumberOfEvents extends Component {
+  constructor() {
+    super();
+    this.state = {
+      query: 32,
+    };
+  }
+  
+  handleInputChanged = (event) => {
+    const value = event.target.value;
+    if (value >= 1 || value <= 32) {
+      this.setState({
+        query: value,
+      });
+      this.props.updateEvents(this.props.selectedCity, value);
+    }
+  };
 
-   changeNum(value) {
-     this.setState({ num: value });
-   }
-
-   render() {
-     const { num } = this.state;
-
-     return (
-       <input
-         className="num"
-         type="number"
-         value={num}
-         onChange={(event) => {
-           this.changeNum(event.target.value);
-         }}
-       ></input>
-     );
-   }
- }
-
+  render() {
+    return (
+      <div>
+        <input
+          type='number'
+          className='numberOfEvents'
+          min={1}
+          max={32}
+          value={this.state.query}
+          onChange={this.handleInputChanged}
+        />
+      </div>
+    );
+  }
+}
  export default NumberOfEvents;
