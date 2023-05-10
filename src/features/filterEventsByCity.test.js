@@ -22,23 +22,23 @@ defineFeature(feature, test => {
 
         then('the user should see a list of all upcoming events', () => {
             AppWrapper.update();
-            //expect(AppWrapper.find('.EventList').hostNodes()).toHaveLength(mockData.length);
+            expect(AppWrapper.find('.event').hostNodes()).toHaveLength(mockData.length);
         });
     });
 
    
     test('User should see a list of suggestions when they search for a city', ({ given, when, then }) => {
-        //let CitySearchWrapper;
+        let CitySearchWrapper;
         given('the main page is open', () => {
-            //CitySearchWrapper = shallow(<CitySearch updateEvents={() => {}} locations={locations} />);
+            CitySearchWrapper = shallow(<CitySearch updateEvents={() => {}} locations={locations} />);
         });
 
         when('user starts typing in the city textbox', () => {
-            //CitySearchWrapper.find('.city').simulate('change', { target: { value: 'Berlin' } });
+            CitySearchWrapper.find('.city').simulate('change', { target: { value: 'Berlin' } });
         });
 
         then('the user should see a list of cities (suggestions) that match what they’ve typed', () => {
-            //expect(CitySearchWrapper.find('.suggestions li')).toHaveLength(2);
+            expect(CitySearchWrapper.find('.suggestions li')).toHaveLength(2);
         });
     }); 
 
