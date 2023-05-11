@@ -3,16 +3,21 @@
 import React, { Component } from "react";
 
 class Event extends Component {
-  state = { collapsed: true};
-  toggleDetails = () => {
-    this.state((prevState) => ({
-      collapsed: !prevState.collapsed,
+  state = {
+    showDetails: false
+  };
+
+  handleDetailsClick = () => {
+    this.setState(prevState => ({
+      showDetails: !prevState.showDetails
     }));
   };
 
+
   render() {
     const { event } = this.props;
-    const {collapsed} =this.state;
+    // const {collapsed} =this.state;
+    const { showDetails } = this.state;
    
     return (
     <div className="event">
@@ -21,7 +26,7 @@ class Event extends Component {
         {new Date(event.start.dateTime).toString()}
         </p>
         <p className="event-location">{`@${event.summary} | ${event.location}`}</p>
-      {!collapsed && (
+      {showDetails && (
         <>
           <div className="details">
         <h2 className="about">About Event:</h2>
@@ -32,8 +37,8 @@ class Event extends Component {
         </div>
             </>
       )}
-        <button className="details-btn" onClick={() => this.toggleDetails()}>
-           {collapsed ? "show" : "hide"} details
+        <button className="details-btn" onClick={this.handleDetailsClick}>
+        {showDetails ? 'Hide Details' : 'Show Details'}
          </button>
        </div>
       );

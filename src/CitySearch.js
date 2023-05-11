@@ -3,13 +3,12 @@
 import React, { Component } from 'react';
 
 class CitySearch extends Component {
-  constructor() {
-    super();
-    this.state = {
+
+    state = {
       query: "",
       suggestions: [],
       showSuggestions: undefined,
-    };
+    
   }
 
   handleInputChanged = (event) => {
@@ -32,6 +31,12 @@ class CitySearch extends Component {
     this.props.updateEvents(suggestion);
   };
 
+  toggleSuggestions = () => {
+    this.setState((prevState) => ({
+      showSuggestions: !prevState.showSuggestions,
+    }));
+  };
+
   render() {
     return (
       <div className='CitySearch'>
@@ -43,6 +48,11 @@ class CitySearch extends Component {
           onFocus={() => {
             this.setState({ showSuggestions: true });
           }}
+        />
+          <i
+          className="fa fa-chevron-down"
+          onClick={this.toggleSuggestions}
+          style={{ cursor: 'pointer', marginLeft: '5px' }}
         />
         <ul
           className='suggestions'
