@@ -6,7 +6,6 @@ import { mockData } from '../mock-data';
 import CitySearch from '../CitySearch';
 import { extractLocations, } from '../api';
 
-
 const feature = loadFeature("./src/features/filterEventsByCity.feature");
 const locations = extractLocations(mockData);
 
@@ -25,7 +24,6 @@ defineFeature(feature, test => {
             expect(AppWrapper.find('.event').hostNodes()).toHaveLength(mockData.length);
         });
     });
-
    
     test('User should see a list of suggestions when they search for a city', ({ given, when, then }) => {
         let CitySearchWrapper;
@@ -61,7 +59,6 @@ defineFeature(feature, test => {
         then('their city should be changed to that city (i.e., “Berlin, Germany”)', () => {
             const CitySearchWrapper = AppWrapper.find(CitySearch);
       expect(CitySearchWrapper.state('query')).toBe('Berlin, Germany');
-
         });
 
         and('the user should receive a list of upcoming events in that city', () => {

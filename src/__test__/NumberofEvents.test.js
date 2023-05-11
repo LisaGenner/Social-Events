@@ -22,3 +22,4 @@ import NumberOfEvents from "../NumberOfEvents";
     expect(NumberOfEventsWrapper.state("query")).toBe(20);
   });
  });
+ 

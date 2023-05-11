@@ -87,3 +87,4 @@ describe('<App /> component', () => {
     expect(AppWrapper.state("eventCount")).toBe(selectedNumber);
     });
   });
+  

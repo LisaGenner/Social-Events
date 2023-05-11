@@ -47,6 +47,4 @@ describe("<Event /> component", () => {
     expect(EventWrapper.find('a.link')).toHaveLength(0);
     expect(EventWrapper.find('p.description')).toHaveLength(0);
 });
-
-   
 });

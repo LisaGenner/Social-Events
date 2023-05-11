@@ -9,4 +9,3 @@ Scenario: User can change the number of events they want to see
 Given a user enters a number in the number of events field
 When the user is on the event search page
 Then display the number of events specified by the user
-
