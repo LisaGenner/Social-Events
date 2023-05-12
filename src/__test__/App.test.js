@@ -72,8 +72,8 @@ describe('<App /> component', () => {
       });
 
   test("events state changes number of events changes", () => {
-    const AppWrapper = mount(<App />);
-    const eventCount = AppWrapper.state("eventCount");
+    const AppWrapper = mount(<App />); //opens the app to access
+    const eventCount = AppWrapper.state("eventCount");// in the app there is is a piece of data called eventCount, look into the app
     expect(eventCount).toEqual(AppWrapper.find(NumberOfEvents).props().query);
   });
 

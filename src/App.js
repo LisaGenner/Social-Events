@@ -5,6 +5,7 @@ import './App.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from "./NumberOfEvents";
+import { WarningAlert } from "./Alert";
 import { getEvents, extractLocations } from "./api";
 import './nprogress.css';
 
@@ -82,6 +83,7 @@ updateEvents = (location, eventCount) => {
   render() {
     return (
       <div className='App'>
+         <WarningAlert text={this.state.offlineText} />
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
