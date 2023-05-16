@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import './App.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
-import NumberOfEvents from "./NumberOfEvents";
+import NumberOfEvents from "./NumberOfEvent";
 import { WarningAlert } from "./Alert";
 import { getEvents, extractLocations } from "./api";
 import './nprogress.css';
