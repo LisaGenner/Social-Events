@@ -83,7 +83,9 @@ updateEvents = (location, eventCount) => {
   render() {
     return (
       <div className='App'>
-         <WarningAlert text={this.state.offlineText} />
+        <h1>Meet Events App</h1>
+        <h4>Choose your nearest city</h4>
+        <WarningAlert text={this.state.offlineText} />
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
@@ -93,6 +95,8 @@ updateEvents = (location, eventCount) => {
           query={this.state.eventCount}
           updateEvents={this.updateEvents}
         />
+        <h4>Number of Events</h4>
+        
         <EventList events={this.state.events} />
       </div>
     );

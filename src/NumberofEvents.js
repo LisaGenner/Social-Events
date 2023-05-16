@@ -5,7 +5,7 @@ class NumberOfEvents extends Component {
   constructor() {
     super();
     this.state = {
-      query: 32,
+      query: 10,
       errorText: "",
     };
   }
