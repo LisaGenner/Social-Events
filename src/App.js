@@ -9,8 +9,7 @@ import WelcomeScreen from './WelcomeScreen';
 import { WarningAlert } from "./Alert";
 import { getEvents, extractLocations, checkToken, getAccessToken } from "./api";
 import './nprogress.css';
-
-
+import logo from "./images/meet_logo.png.PNG";
 
 class App extends Component {
   state = {
@@ -38,7 +37,6 @@ class App extends Component {
     }
     }
     
-
 componentWillUnmount(){
   this.mounted = false;
 }
@@ -97,6 +95,7 @@ updateEvents = (location, eventCount) => {
     if (this.state.showWelcomeScreen === undefined) return <div className="App" />
     return (
       <div className='App'>
+        <img src={logo} className="App-logo" alt="logo" />
         <h1>Meet Events App</h1>
         <h4>Choose your nearest city</h4>
         <WarningAlert text={this.state.offlineText} />
