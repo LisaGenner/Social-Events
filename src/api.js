@@ -95,9 +95,9 @@ export const getEvents = async (eventCount) => {
 
   if (token) {
     removeQuery();
-    const url = `https://x0p4qmdlxi.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/${token}?maxResults=${
-      eventCount || 32
-    }`;
+    const url =
+      "https://x0p4qmdlxi.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/" +
+      token;
     const result = await axios.get(url);
     if (result.data) {
       var locations = extractLocations(result.data.events);
