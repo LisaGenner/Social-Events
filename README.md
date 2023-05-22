@@ -142,3 +142,9 @@ user.
 ● The app must be covered by tests with a coverage rate >= 90%.
 
 ● The app must be monitored using an online monitoring tool.
+
+# Serverless Function
+This app will use a token for authorization, which will be generated in an authorization server. This server will host Lambda functions created to deliver authorization tokens to users. With this token, users will have access to event data from Google Calendar API.
+
+# Live URL
+https://lisagenner.github.io/Social-Events/
