@@ -6,7 +6,6 @@ import CitySearch from '../CitySearch';
 import { mockData } from '../mock-data';
 import { extractLocations } from '../api';
 
-
 describe('<CitySearch /> component', () => {
     let locations, CitySearchWrapper;
         beforeAll(() => {
@@ -18,7 +17,6 @@ describe('<CitySearch /> component', () => {
         const query = CitySearchWrapper.state('query');
         expect(CitySearchWrapper.find('.city').prop('value')).toBe(query);
       });
-
 
     test('change state when text input changes', () => {
         CitySearchWrapper.setState({
@@ -58,5 +56,4 @@ describe('<CitySearch /> component', () => {
         CitySearchWrapper.find('.suggestions li').at(0).simulate('click');
         expect(CitySearchWrapper.state("query")).toBe(suggestions[0]);
       });
-  
-  });
+    });

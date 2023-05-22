@@ -5,10 +5,11 @@ import './App.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from "./NumberOfEvents";
+import EventGenre from './EventGenre';
 import WelcomeScreen from './WelcomeScreen';
 import { WarningAlert } from "./Alert";
 import { getEvents, extractLocations, checkToken, getAccessToken } from "./api";
-import {   ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import {   ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import './nprogress.css';
 import logo from "./images/meet_logo.png.PNG";
 
@@ -20,7 +21,7 @@ class App extends Component {
     eventCount: 32,
     showWelcomeScreen: undefined
   }
-
+  
   async componentDidMount() {
     this.mounted = true;
     const accessToken = localStorage.getItem('access_token');
@@ -29,13 +30,14 @@ class App extends Component {
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get("code");
     this.setState({ showWelcomeScreen: !(code || isTokenValid) });
-    if ((code || isTokenValid) && this.mounted) {
+    // if ((code || isTokenValid) && this.mounted) 
+    // {
     getEvents().then((events) => {
     if (this.mounted) {
     this.setState({ events, locations: extractLocations(events) });
     }
     });
-    }
+    // }
     }
     
 componentWillUnmount(){
@@ -91,6 +93,7 @@ updateEvents = (location, eventCount) => {
     });
   }
 };
+
 getData = () => {
   const {locations, events} = this.state;
   const data = locations.map((location)=>{
@@ -106,39 +109,41 @@ getData = () => {
     return (
       <div className='App'>
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>Meet Events App</h1>
         <h4>Choose your nearest city</h4>
         <WarningAlert text={this.state.offlineText} />
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
         />
+           <h4>Number of Events</h4>
         <NumberOfEvents
           selectedCity={this.state.selectedCity}
           query={this.state.eventCount}
           updateEvents={this.updateEvents}
         />
-        <h4>Number of Events</h4>
+     <div className="data-vis-wrapper">
+      <EventGenre events={this.state.events} />
+        <ResponsiveContainer height={400} >
         <ScatterChart
-          width={400}
-          height={400}
-          margin={{
+            margin={{
             top: 20, right: 20, bottom: 20, left: 20,
           }}
         >
           <CartesianGrid />
-          <XAxis type="number" dataKey="x" name="stature" unit="cm" />
-          <YAxis type="number" dataKey="y" name="weight" unit="kg" />
+          <XAxis type="category" dataKey="city" name="city"  />
+          <YAxis allowDecimals={false}type="number" dataKey="number" name="number of events"  />
           <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-          <Scatter name="A school" data={data} fill="#8884d8" />
+          <Scatter data={this.getData()} fill="#8884d8" />
         </ScatterChart>
+        </ResponsiveContainer>
+</div>        
+
         <EventList events={this.state.events} />
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
 getAccessToken={() => { getAccessToken() }} />
 </div>
 );
 }
-
 }
 
 export default App;

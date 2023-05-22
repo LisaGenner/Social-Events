@@ -77,7 +77,6 @@ describe('<App /> component', () => {
     expect(eventCount).toEqual(AppWrapper.find(NumberOfEvents).props().query);
   });
 
-
   test('get list of events matching the number of events selected by the user', async() => {
     const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
     const selectedNumber = Math.floor(Math.random() * 32);

@@ -1,7 +1,6 @@
-import { mockData } from './mock-data';
-import axios from 'axios';
-import NProgress from 'nprogress';
-
+import { mockData } from "./mock-data";
+import axios from "axios";
+import NProgress from "nprogress";
 
 /**
  *
@@ -31,7 +30,6 @@ export const checkToken = async (accessToken) => {
   return result;
 };
 
-
 export const getEvents = async () => {
   NProgress.start();
   if (window.location.href.startsWith("http://localhost")) {
@@ -49,7 +47,8 @@ export const getEvents = async () => {
   if (token) {
     removeQuery();
     const url =
-      "https://x0p4qmdlxi.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/" + token;
+      "https://x0p4qmdlxi.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/" +
+      token;
     const result = await axios.get(url);
     if (result.data) {
       var locations = extractLocations(result.data.events);
@@ -60,7 +59,6 @@ export const getEvents = async () => {
     return result.data.events;
   }
 };
-
 
 export const getAccessToken = async () => {
   const accessToken = localStorage.getItem("access_token");
@@ -81,8 +79,6 @@ export const getAccessToken = async () => {
   return accessToken;
 };
 
-
-
 const removeQuery = () => {
   if (window.history.pushState && window.location.pathname) {
     var newurl =
@@ -96,6 +92,7 @@ const removeQuery = () => {
     window.history.pushState("", "", newurl);
   }
 };
+
 const getToken = async (code) => {
   try {
     const encodeCode = encodeURIComponent(code);
@@ -113,5 +110,3 @@ const getToken = async (code) => {
     error.json();
   }
 };
-
-
