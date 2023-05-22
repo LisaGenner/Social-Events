@@ -8,6 +8,7 @@ import NumberOfEvents from "./NumberOfEvents";
 import WelcomeScreen from './WelcomeScreen';
 import { WarningAlert } from "./Alert";
 import { getEvents, extractLocations, checkToken, getAccessToken } from "./api";
+import {   ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import './nprogress.css';
 import logo from "./images/meet_logo.png.PNG";
 
@@ -90,6 +91,15 @@ updateEvents = (location, eventCount) => {
     });
   }
 };
+getData = () => {
+  const {locations, events} = this.state;
+  const data = locations.map((location)=>{
+    const number = events.filter((event) => event.location === location).length
+    const city = location.split(', ').shift()
+    return {city, number};
+  })
+  return data;
+};
 
   render() {
     if (this.state.showWelcomeScreen === undefined) return <div className="App" />
@@ -109,7 +119,19 @@ updateEvents = (location, eventCount) => {
           updateEvents={this.updateEvents}
         />
         <h4>Number of Events</h4>
-        
+        <ScatterChart
+          width={400}
+          height={400}
+          margin={{
+            top: 20, right: 20, bottom: 20, left: 20,
+          }}
+        >
+          <CartesianGrid />
+          <XAxis type="number" dataKey="x" name="stature" unit="cm" />
+          <YAxis type="number" dataKey="y" name="weight" unit="kg" />
+          <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+          <Scatter name="A school" data={data} fill="#8884d8" />
+        </ScatterChart>
         <EventList events={this.state.events} />
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
 getAccessToken={() => { getAccessToken() }} />
