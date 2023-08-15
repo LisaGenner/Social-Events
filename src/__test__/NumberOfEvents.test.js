@@ -1,4 +1,4 @@
-
+// src/__tests__/NumberOfEvents.test.js
 import React from "react";
 import { shallow } from "enzyme";
 import NumberOfEvents from "../NumberOfEvents";

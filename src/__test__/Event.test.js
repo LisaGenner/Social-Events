@@ -1,3 +1,4 @@
+// src/__tests__/Event.test.js
 import React from "react";
 import { shallow } from "enzyme";
 import { mockData } from "../mock-data";
@@ -22,7 +23,7 @@ describe("<Event /> component", () => {
     expect(summary.text()).toBe(event.summary);
   });
 
-    // test 3: checks the start time of location is rendered
+  // test 3: checks the start time of location is rendered
   test("renders the start details", () => {
     const eventStart = EventWrapper.find("p.event-start");
     expect(eventStart).toHaveLength(1);
@@ -36,7 +37,7 @@ describe("<Event /> component", () => {
     expect(eventLocation.text()).toBe(`@${event.summary} | ${event.location}`);
   });
 
-// Test 5: checks the button is collapsed by default
+  // Test 5: checks the button is collapsed by default
  test("renders collapsed state as default", () => {
      expect(EventWrapper.state("collapsed")).toBe(true);
  });
